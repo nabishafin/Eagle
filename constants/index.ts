@@ -47,7 +47,7 @@ import hero_top_shadow from "@/public/hero_top_shadow.png"
 import tiktok_service from "@/public/tiktok_service.png"
 import left_shadow from "@/public/left_shadow.png"
 import right_shadow from "@/public/right_shadow.png"
-
+import arrow_down from "@/public/arrow_down.png"
 export const images = {
     amEx,
     appLogo,
@@ -95,7 +95,8 @@ export const images = {
     hero_top_shadow,
     tiktok_service,
     left_shadow,
-    right_shadow
+    right_shadow,
+    arrow_down
 } satisfies Record<string, StaticImageData>;
 
 export type ServiceTab = {

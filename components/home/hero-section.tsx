@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,11 +17,12 @@ import {
 import { ActivityBadge } from "./activity-badge";
 import { ServiceTabCard } from "./service-tab";
 
-const navCaret = "\u2304";
 const appleMark = "\uF8FF";
 const starLabel = "\u2605";
 
 export function HeroSection() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen overflow-hidden isolate">
       <div className="pointer-events-none absolute left-[-140px] top-[160px] z-0 h-[260px] w-[260px] rounded-full bg-[rgba(9,131,255,0.42)] blur-[70px] sm:h-[300px] sm:w-[300px] lg:h-[360px] lg:w-[360px] lg:blur-[80px]" />
@@ -68,36 +72,53 @@ export function HeroSection() {
       />
 
       <div className="relative z-[2] w-full px-4 pb-10 sm:px-6 md:px-10 lg:px-[100px]">
-        <header className="flex min-h-[66px] flex-wrap items-center justify-between gap-4 border-b border-[rgba(68,129,203,0.34)] sm:min-h-[70px] lg:min-h-[74px]">
-          <Link href="/" aria-label="Eagle Likes home" className="shrink-0">
+        {/* Header Container */}
+        <header className="relative flex min-h-[66px] items-center justify-between gap-4 border-b border-[rgba(68,129,203,0.34)] sm:min-h-[70px] lg:min-h-[74px]">
+          <Link href="/" aria-label="Eagle Likes home" className="shrink-0 z-[51]">
             <Image src={images.appLogo} alt="Eagle Likes" priority className="h-auto w-[130px] sm:w-[150px] lg:w-auto" />
           </Link>
 
+          {/* Desktop Navigation & Mobile Drawer Nav */}
           <nav
-            className="order-3 flex w-full flex-wrap items-center justify-center gap-x-4 gap-y-2 py-3 md:order-2 md:flex-1 md:gap-x-5 lg:order-none lg:w-auto lg:flex-nowrap lg:gap-[18px] lg:py-0"
+            className={`fixed inset-0 z-50 flex flex-col items-center justify-center gap-y-6 bg-[rgba(8,24,43,0.98)] p-6 transition-all duration-300 md:static md:z-auto md:flex-row md:w-auto md:flex-1 md:gap-x-5 md:bg-transparent md:p-0 lg:gap-[18px] ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible md:opacity-100 md:visible"
+              }`}
             aria-label="Primary navigation"
           >
             {primaryNav.map((item) => (
               <Link
                 key={item}
                 href="/"
-                className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.02em] text-[#d6e3f7] no-underline transition-colors duration-200 hover:text-white sm:text-[11px]"
+                onClick={() => setIsMenuOpen(false)}
+                className="inline-flex items-center gap-1.5 text-[14px] font-semibold tracking-[0.02em] text-[#d6e3f7] no-underline transition-colors duration-200 hover:text-white md:text-[10px] sm:text-[11px]"
               >
                 <span>{item}</span>
                 <span className="text-[10px] leading-none text-[#69adff]">
-                  {navCaret}
+                  <Image src={images.arrow_down} alt="" />
                 </span>
               </Link>
             ))}
           </nav>
 
-          <Link
-            href="/"
-            className="order-2 inline-flex items-center gap-2 rounded-[10px] border border-[rgba(110,162,224,0.42)] bg-[rgba(8,24,43,0.94)] px-[11px] py-2 text-[11px] font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] no-underline sm:px-[13px] sm:py-[9px] sm:text-[12px] md:order-3"
-          >
-            <Image src={images.userIcon} alt="" />
-            <span>Login</span>
-          </Link>
+          <div className="flex items-center gap-3 z-[51]">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-[10px] border border-[rgba(110,162,224,0.42)] bg-[rgba(8,24,43,0.94)] px-[11px] py-2 text-[11px] font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] no-underline sm:px-[13px] sm:py-[9px] sm:text-[12px]"
+            >
+              <Image src={images.userIcon} alt="" />
+              <span>Login</span>
+            </Link>
+
+            {/* Mobile Menu Toggle Button */}
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-[10px] border border-[rgba(110,162,224,0.3)] bg-[rgba(8,24,43,0.8)] md:hidden"
+              aria-label="Toggle menu"
+            >
+              <span className={`h-[2px] w-5 bg-white transition-transform duration-300 ${isMenuOpen ? "translate-y-[7px] rotate-44" : ""}`} />
+              <span className={`h-[2px] w-5 bg-white transition-opacity duration-300 ${isMenuOpen ? "opacity-0" : ""}`} />
+              <span className={`h-[2px] w-5 bg-white transition-transform duration-300 ${isMenuOpen ? "-translate-y-[7px] -rotate-44" : ""}`} />
+            </button>
+          </div>
         </header>
 
         <div className="pt-12 sm:pt-16 md:pt-20 lg:pt-[183px]">

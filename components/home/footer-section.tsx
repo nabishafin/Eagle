@@ -11,12 +11,15 @@ export function FooterSection() {
         <div className="grid gap-8 border-b border-[rgba(255,255,255,0.06)] pb-8 md:grid-cols-3 lg:grid-cols-[1fr_1fr_1fr_1.8fr_1.2fr_0.8fr] lg:gap-10">
           {footerLinkGroups.map((group, index) => (
             <div key={`${group.title}-${index}`} className="min-w-0">
-              <h3 className="text-[15px] font-semibold text-white">
+              <h3 className="text-[17px] font-semibold text-white">
                 {group.title === " " ? "\u00A0" : group.title}
               </h3>
               <div className="mt-5 space-y-3">
                 {group.links.map((link) => (
-                  <p key={link} className="text-[11px] leading-[1.45] text-[#a1a7b1]">
+                  <p
+                    key={link}
+                    className="text-[13px] leading-[1.5] text-[#a1a7b1]"
+                  >
                     {link}
                   </p>
                 ))}
@@ -26,7 +29,7 @@ export function FooterSection() {
         </div>
 
         <div className="mt-5 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-2 text-[12px] text-[#a7adb6]">
+          <div className="flex items-center gap-2 text-[13px] text-[#a7adb6]">
             <Image
               src={images.globe}
               alt=""
@@ -34,24 +37,28 @@ export function FooterSection() {
               className="h-[14px] w-[14px] opacity-80"
             />
             <span>EN</span>
-            <span className="text-[10px] text-[#8c93a0]">⌄</span>
+            <span className="text-[11px] text-[#8c93a0]">⌄</span>
           </div>
 
-          <p className="text-[11px] text-[#8f959f]">
+          <p className="text-[13px] text-[#8f959f]">
             Copyright © 2025 Eagle Likes, All Rights Reserved.
           </p>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center gap-3">
             {paymentLogos.map((logo, index) => (
               <div
-                key={`${logo.src}-${index}`}
-                className="flex h-[18px] min-w-[28px] items-center justify-center rounded-[4px] bg-white px-[4px]"
+                key={`${logo.src || index}`}
+                className="flex h-[26px] w-[42px] items-center justify-center rounded-[4px] bg-white p-1"
               >
-                <Image
-                  src={logo}
-                  alt="Payment method"
-                  className="h-[10px] w-auto object-contain"
-                />
+                <div className="relative h-full w-full">
+                  <Image
+                    src={logo}
+                    alt="Payment method"
+                    fill
+                    sizes="42px"
+                    className="object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
