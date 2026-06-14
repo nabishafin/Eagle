@@ -303,3 +303,98 @@ export const eagleServiceFeature: EagleServiceFeature = {
         },
     ],
 };
+
+export type HowItWorksStep = {
+    number: string;
+    title: string;
+    description: string;
+    icon: "cart" | "user" | "lock";
+    iconColor: string;
+    iconBackground: string;
+};
+
+export const howItWorksSteps: HowItWorksStep[] = [
+    {
+        number: "01",
+        title: "Pick a Service",
+        description: "Pick the service that fits your goals and start growing now",
+        icon: "cart",
+        iconColor: "#c86dff",
+        iconBackground: "rgba(133,54,185,0.18)",
+    },
+    {
+        number: "02",
+        title: "Enter Information",
+        description: "Enter your information to get started quickly and securely!",
+        icon: "user",
+        iconColor: "#5aa8ff",
+        iconBackground: "rgba(44,102,181,0.18)",
+    },
+    {
+        number: "03",
+        title: "Pay Securely",
+        description: "Pay securely and complete your order in seconds!",
+        icon: "lock",
+        iconColor: "#12d39a",
+        iconBackground: "rgba(12,122,92,0.18)",
+    },
+];
+
+export type WhyEagleLikesFeature = {
+    title: string;
+    description: string;
+    image: StaticImageData;
+    imageAlt: string;
+    imagePosition: "left" | "right";
+    badge?: string;
+    bullets?: {
+        title: string;
+        description: string;
+        color: "pink" | "green" | "purple";
+    }[];
+};
+
+export const whyEagleLikesFeatures: WhyEagleLikesFeature[] = [
+    {
+        title: "Growth Focused Services",
+        description:
+            "For more than a decade, Eagle Likes has offered verified TikTok followers, likes, and views that help accounts scale faster, increasing visibility and engagement while maintaining a respected standing as a reputable social media growth service relied upon by customers globally. Safely and reliably.\n\nAs the TikTok market expanded, we focused on providing high-quality growth services that empower creators to gain real followers and consistent engagement safely.",
+        image: social4,
+        imageAlt: "Excited person celebrating social media growth",
+        imagePosition: "right",
+    },
+    {
+        title: "Leading Growth Specialists",
+        description:
+            "With our support millions of users are building stronger social media profiles, delivering billions of Instagram likes, views, and comments, along with thousands of authentic TikTok interactions that boost engagement, strengthen visibility, and drive continuous, lasting growth.\n\nUsers trust our service because we consistently deliver high-quality, genuine growth. Our expert team ensures every follower, like, and view is gained safely and effectively for lasting success.",
+        image: social5,
+        imageAlt: "Smiling woman checking growth progress on her phone",
+        imagePosition: "left",
+    },
+    {
+        title: "Scale Your Social Media to New Heights",
+        description:
+            "Unlock explosive growth with data-driven strategies. Build authentic engagement, expand your reach, and turn followers into loyal customers.",
+        image: social6,
+        imageAlt: "Growth analytics ring with social media metrics",
+        imagePosition: "right",
+        badge: "Accelerate Your Growth",
+        bullets: [
+            {
+                title: "Accelerated Growth",
+                description: "Achieve 10x faster audience expansion with proven tactics.",
+                color: "pink",
+            },
+            {
+                title: "Authentic Engagement",
+                description: "Foster genuine interactions that drive long-term loyalty.",
+                color: "green",
+            },
+            {
+                title: "Data-Driven Results",
+                description: "Track every metric and optimize for maximum impact.",
+                color: "purple",
+            },
+        ],
+    },
+];
