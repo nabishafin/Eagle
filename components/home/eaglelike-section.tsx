@@ -1,294 +1,226 @@
 import Image from "next/image";
 
-import { eagleLikeFeatures, images, pressLogos } from "@/constants";
+import { images } from "@/constants";
 
-const thirdFeatureImage = eagleLikeFeatures[2]?.image;
-
-const bulletAccents = [
-  "bg-[#ff4bd8]",
-  "bg-[#28d7ff]",
-  "bg-[#5d86ff]",
-  "bg-[#41e38b]",
+const pressLogos = [
+  images.yahoo,
+  images.fox,
+  images.marketWatch,
+  images.tripa,
+  images.digitalJurnal,
+  images.nbc,
+  images.usaToday,
 ];
 
-const thirdFeatureBulletDescriptions = [
-  "Track your growth with real-time analytics and actionable metrics",
-  "Build meaningful connections with your growing community",
-  "Monitor your success with comprehensive performance metrics",
-];
-
-const pressLogoClassNames = [
-  "h-[50px]",
-  "h-[50px]",
-  "h-[50px]",
-  "h-[50px]",
-  "h-[50px]",
-  "h-[50px]",
-  "h-[50px]",
-];
-
-const desktopFeatureGapClassName = "lg:justify-center lg:gap-x-[300px]";
-
-type FeatureSectionConfig = {
-  containerClassName: string;
-  contentClassName: string;
-  imageWrapperClassName: string;
-  imageFrameClassName: string;
-  imageClassName?: string;
-  imageWidth: number;
-  imageHeight: number;
-  preload: boolean;
-  wrapperClassName?: string;
-  gradientTitle?: boolean;
-  showBullets?: boolean;
-  imageGlowClassName?: string | null;
-};
-
-const featureSectionConfigs: FeatureSectionConfig[] = [
+const featureBullets = [
   {
-    containerClassName:
-      `grid items-center gap-10 lg:grid-cols-[minmax(0,420px)_minmax(320px,420px)] lg:gap-14 ${desktopFeatureGapClassName}`,
-    contentClassName: "flex flex-col gap-[35px]",
-    imageWrapperClassName: "order-1 flex justify-center lg:order-2 lg:justify-end",
-    imageFrameClassName: "w-[250px] sm:w-[280px] md:w-[320px] lg:w-[380px]",
-    imageWidth: 380,
-    imageHeight: 540,
-    preload: true,
+    title: "Data-Driven Insights",
+    description:
+      "Track your growth with real-time analytics and actionable metrics",
+    accentClassName: "bg-[#a33dff]",
   },
   {
-    containerClassName:
-      `grid items-center gap-10 lg:grid-cols-[minmax(320px,420px)_minmax(0,420px)] lg:gap-14 ${desktopFeatureGapClassName}`,
-    contentClassName: "flex max-w-[420px] flex-col gap-[35px]",
-    imageWrapperClassName: "flex justify-center lg:justify-start",
-    imageFrameClassName: "w-[250px] sm:w-[280px] md:w-[320px] lg:w-[380px]",
-    imageWidth: 380,
-    imageHeight: 540,
-    preload: false,
+    title: "Audience Engagement",
+    description:
+      "Build meaningful connections with your growing community",
+    accentClassName: "bg-[#29c9ff]",
   },
   {
-    wrapperClassName: "border-t border-white/6 pt-16 md:pt-20",
-    containerClassName:
-      `grid items-center gap-12 lg:grid-cols-[693px_minmax(0,520px)] lg:gap-16 ${desktopFeatureGapClassName}`,
-    contentClassName: "flex max-w-[520px] flex-col gap-[35px]",
-    imageWrapperClassName: "flex justify-center lg:justify-start",
-    imageFrameClassName: "w-full  lg:shrink-0",
-    imageWidth: thirdFeatureImage?.width,
-    imageHeight: thirdFeatureImage?.height,
-    preload: false,
-    gradientTitle: true,
-    showBullets: true,
-    imageGlowClassName: null,
+    title: "Performance Tracking",
+    description:
+      "Monitor your success with comprehensive performance metrics",
+    accentClassName: "bg-[#20d66e]",
   },
 ];
 
-function splitTitle(title = "") {
-  const words = title.split(" ");
-
-  if (words.length <= 2) {
-    return [title, ""];
-  }
-
-  return [words.slice(0, 2).join(" "), words.slice(2).join(" ")];
-}
-
-function GlowImage({
-  alt,
-  preload = false,
+function PortraitFrame({
   src,
-  width,
-  height,
-  frameClassName,
-  imageClassName = "relative z-[1] h-auto w-full rounded-[2.5rem] object-cover",
-  glowClassName = "absolute inset-x-[8%] inset-y-[10%] rounded-[2.6rem] bg-[rgba(0,132,255,0.5)] blur-[36px]",
+  alt,
+  widthClassName,
 }: {
-  alt: string;
-  frameClassName: string;
-  glowClassName?: string | null;
-  height: number;
-  imageClassName?: string;
-  preload?: boolean;
   src: Parameters<typeof Image>[0]["src"];
-  width: number;
+  alt: string;
+  widthClassName: string;
 }) {
   return (
-    <div className={`relative ${frameClassName}`}>
-      {glowClassName ? <div className={glowClassName} /> : null}
-      <div className="absolute inset-0 rounded-[2.6rem] shadow-[0_24px_50px_rgba(0,0,0,0.35)]" />
+    <div className={`relative ${widthClassName}`}>
+      <div className="absolute inset-[8%] rounded-[2.5rem] bg-[rgba(0,124,255,0.26)] blur-[26px] lg:blur-[34px]" />
       <Image
         src={src}
         alt={alt}
-        width={width}
-        height={height}
-        preload={preload}
-        className={imageClassName}
+        className="relative z-[1] h-auto w-full rounded-[2.5rem] object-cover"
+        priority
       />
     </div>
   );
 }
 
-function renderFeatureTitle(title: string, useGradient?: boolean) {
-  const [firstLine, secondLine] = splitTitle(title);
-  const content = (
-    <>
-      {firstLine}
-      {secondLine ? (
-        <>
-          <br />
-          {secondLine}
-        </>
-      ) : null}
-    </>
-  );
-
-  if (!useGradient) {
-    return content;
-  }
-
+function FeatureCopy({
+  title,
+  description,
+  gradient = false,
+  bullets = false,
+  maxWidthClassName = "max-w-[290px] md:max-w-[248px] lg:max-w-[360px]",
+}: {
+  title: string;
+  description: string;
+  gradient?: boolean;
+  bullets?: boolean;
+  maxWidthClassName?: string;
+}) {
   return (
-    <span className="bg-[linear-gradient(90deg,#f067ff_0%,#9d63ff_100%)] bg-clip-text text-transparent">
-      {content}
-    </span>
+    <div className={`w-full ${maxWidthClassName}`}>
+      <h2
+        className={`text-[2.15rem] font-bold leading-[0.94] tracking-[-0.05em] sm:text-[2.4rem] md:text-[2.1rem] lg:text-[3.12rem] ${
+          gradient
+            ? "bg-[linear-gradient(180deg,#f168ff_0%,#9e53ff_100%)] bg-clip-text text-transparent"
+            : "text-white"
+        }`}
+      >
+        {title}
+      </h2>
+      <p className="mt-4 text-[13px] leading-[1.56] text-[#8d95a3] md:text-[11px] lg:mt-5 lg:text-[15px]">
+        {description}
+      </p>
+
+      {bullets ? (
+        <div className="mt-6 space-y-4 lg:mt-7">
+          {featureBullets.map((bullet) => (
+            <div key={bullet.title} className="flex items-start gap-3">
+              <span
+                className={`mt-[3px] inline-flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded-[5px] ${bullet.accentClassName}`}
+              >
+                <span className="h-[5px] w-[5px] rounded-full bg-white" />
+              </span>
+              <div>
+                <h3 className="text-[12px] font-semibold leading-[1.2] text-white md:text-[10px] lg:text-[14px]">
+                  {bullet.title}
+                </h3>
+                <p className="mt-1 text-[11px] leading-[1.45] text-[#6f7885] md:text-[8.5px] lg:text-[12px]">
+                  {bullet.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : null}
+    </div>
   );
 }
 
 export function EagleLikeSection() {
-  const reversedPressLogos = [...pressLogos].reverse();
+  const marqueeLogos = [...pressLogos, ...pressLogos];
 
   return (
-    <section className="relative isolate overflow-hidden">
+    <section className="relative isolate overflow-hidden border-b border-[rgba(22,63,110,0.4)] bg-[#050505] px-6 py-10 sm:py-12 md:px-12 md:py-14 lg:px-[92px] lg:py-[54px]">
       <Image
         src={images.leftHeroShadow}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-[118px] z-[1] h-auto w-[200px] select-none opacity-60 sm:w-[250px] md:w-[290px] lg:w-[340px] lg:opacity-70"
+        className="pointer-events-none absolute left-0 top-[96px] z-0 h-auto w-[180px] opacity-60 sm:w-[220px] md:w-[250px] lg:w-[336px]"
         priority
       />
       <Image
         src={images.rightHeroShadow}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-[92px] z-[1] h-auto w-[150px] select-none opacity-[0.58] sm:w-[190px] md:w-[220px] lg:w-[265px] lg:opacity-[0.74]"
+        className="pointer-events-none absolute right-0 top-[144px] z-0 h-auto w-[132px] opacity-58 sm:w-[164px] md:w-[188px] lg:top-[96px] lg:w-[262px]"
         priority
       />
       <Image
         src={images.leftHeroShadow}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[290px] left-0 z-[1] h-auto w-[210px] select-none opacity-60 sm:w-[250px] md:w-[290px] lg:bottom-[210px] lg:w-[340px] lg:opacity-70"
+        className="pointer-events-none absolute bottom-[132px] left-0 z-0 h-auto w-[172px] opacity-55 sm:w-[208px] md:w-[236px] lg:bottom-[160px] lg:w-[336px]"
         priority
       />
       <Image
         src={images.rightHeroShadow}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[260px] right-0 z-[1] h-auto w-[150px] select-none opacity-[0.58] sm:w-[190px] md:w-[220px] lg:bottom-[160px] lg:w-[265px] lg:opacity-[0.74]"
+        className="pointer-events-none absolute bottom-[44px] right-0 z-0 h-auto w-[126px] opacity-55 sm:w-[150px] md:w-[172px] lg:bottom-[80px] lg:w-[248px]"
         priority
       />
 
-      <div className="relative z-[2] mx-auto w-full">
-        <div className="pb-8">
-          <p className="mb-4 text-center text-[9px] tracking-[0.18em] text-[#99A1AF] uppercase">
+      <div className="relative z-[1] mx-auto w-full">
+        <div className="w-full text-center">
+          <p className="text-[18px] uppercase tracking-[0.18em] text-[#97a0ad] ">
             Eagle Likes is seen on...
           </p>
-          <div className="mt-8 overflow-hidden sm:mt-10">
-            <div className="flex w-max items-center gap-x-5 marquee-track md:gap-x-7">
-              {[...reversedPressLogos, ...reversedPressLogos].map(
-                (logo, index) => (
-                  <Image
-                    key={`${logo.src}-${index}`}
-                    src={logo}
-                    alt="Press Logo"
-                    className={`${pressLogoClassNames[index % reversedPressLogos.length] || "h-[58px]"} w-auto shrink-0 object-contain opacity-90`}
-                  />
-                ),
-              )}
+          <div className="mt-5 w-full overflow-hidden md:mt-6">
+            <div className="marquee-track flex w-max items-center gap-x-8 sm:gap-x-10 md:gap-x-12 lg:gap-x-14">
+              {marqueeLogos.map((logo, index) => (
+                <Image
+                  key={`${logo.src}-${index}`}
+                  src={logo}
+                  alt="Press logo"
+                  className="h-[58px] w-auto shrink-0 object-contain opacity-95"
+                />
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="mt-16 space-y-20 px-5 sm:px-8 md:mt-20 md:space-y-24 md:px-12 lg:space-y-28 lg:px-[181px]">
-          {eagleLikeFeatures.map((feature, index) => {
-            const config = featureSectionConfigs[index];
+        <div className="mt-10 space-y-14 sm:mt-12 sm:space-y-16 md:mt-14 md:space-y-20 lg:mt-[56px] lg:space-y-[78px]  max-w-[1260px] mx-auto">
+          <div className="flex flex-col items-center gap-7 md:grid md:grid-cols-[248px_320px] md:items-center md:justify-between md:gap-x-[78px] lg:grid-cols-[minmax(0,360px)_380px] lg:gap-x-[176px]">
+            <div className="order-2 md:order-1">
+              <FeatureCopy
+                title="Social Media Exposure"
+                description="As Social Media continues to dominate the digital world, creators struggle to get the attention their content deserves. The moment People post posts with high engagement followers, likes, and comments they've drawn to find out what's behind the excitement."
+              />
+            </div>
 
-            if (!config) {
-              return null;
-            }
+            <div className="order-1 md:order-2 flex w-full justify-center md:justify-start lg:justify-end">
+              <PortraitFrame
+                src={images.social1}
+                alt="Woman holding a phone with social icons around her"
+                widthClassName="w-[250px] sm:w-[278px] md:w-[320px] lg:w-[380px]"
+              />
+            </div>
+          </div>
 
-            const featureContent = (
-              <div
-                className={`${config.contentClassName} ${index === 2 ? "lg:relative lg:-top-[90px]" : ""
-                  }`}
-              >
-                <h2 className="text-[clamp(2rem,3vw,3rem)] leading-[0.96] font-bold tracking-[-0.04em] text-white">
-                  {renderFeatureTitle(feature.title, config.gradientTitle)}
-                </h2>
-                <p className="mt-5 max-w-[420px] text-[18px] leading-[1.55] text-[#8c99ac]">
-                  {feature.description}
-                </p>
+          <div className="flex flex-col items-center gap-7 md:grid md:grid-cols-[320px_248px] md:items-center md:justify-between md:gap-x-[78px] lg:grid-cols-[380px_minmax(0,360px)] lg:gap-x-[176px]">
+            <div className="flex w-full justify-center md:justify-end lg:justify-start">
+              <PortraitFrame
+                src={images.social2}
+                alt="Man reacting excitedly to social engagement"
+                widthClassName="w-[250px] sm:w-[278px] md:w-[320px] lg:w-[380px]"
+              />
+            </div>
 
-                {config.showBullets && feature.bullets && (
-                  <div className="mt-6 space-y-4">
-                    {feature.bullets.map((bullet, bulletIndex) => (
-                      <div key={bullet} className="flex items-start gap-3">
-                        <span
-                          className={`mt-1 inline-flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-[6px] ${bulletAccents[bulletIndex % bulletAccents.length]} shadow-[0_10px_20px_rgba(0,0,0,0.22)]`}
-                        >
-                          <span className="h-[7px] w-[7px] rounded-full bg-white" />
-                        </span>
-                        <div className="space-y-1">
-                          <h4 className="text-[13px] font-semibold tracking-[0.01em] text-white md:text-[14px]">
-                            {bullet}
-                          </h4>
-                          <p className="text-[12px] leading-[1.45] text-[#7d8593]">
-                            {thirdFeatureBulletDescriptions[bulletIndex]}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+            <div>
+              <FeatureCopy
+                title="Instant Growth Boost"
+                description="It brings continuous engagement to your Instagram and TikTok, boosting your fame and authority on both platforms. It's all possible with our instant Instagram and TikTok engagement - safe, reliable, and built for real, organic results."
+              />
+            </div>
+          </div>
+
+          <div className="border-t border-[rgba(255,255,255,0.05)] pt-14 md:pt-16 lg:pt-[56px]">
+            <div className="flex flex-col items-center gap-8 md:grid md:grid-cols-[320px_280px] md:items-center md:justify-between md:gap-x-[56px] lg:grid-cols-[500px_minmax(0,360px)] lg:gap-x-[142px]">
+              <div className="flex w-full justify-center md:justify-end lg:justify-start">
+                <div className="relative w-[270px] sm:w-[320px] md:w-[320px] lg:w-[500px]">
+                  <div className="absolute inset-x-[16%] bottom-[8%] top-[20%] rounded-[2.5rem] bg-[rgba(0,124,255,0.2)] blur-[28px] lg:blur-[40px]" />
+                  <Image
+                    src={images.social3}
+                    alt="Social media analytics dashboard"
+                    className="relative z-[1] h-auto w-full object-contain"
+                    priority
+                  />
+                </div>
               </div>
-            );
 
-            const featureImage = (
-              <div className={config.imageWrapperClassName}>
-                <GlowImage
-                  src={feature.image}
-                  alt={feature.imageAlt || feature.title}
-                  width={config.imageWidth}
-                  height={config.imageHeight}
-                  frameClassName={config.imageFrameClassName}
-                  imageClassName={config.imageClassName}
-                  preload={config.preload}
-                  glowClassName={config.imageGlowClassName}
+              <div className="md:-translate-y-2 lg:translate-y-0">
+                <FeatureCopy
+                  title="Social Media Growth"
+                  description="Transform your social presence with data-driven strategies and watch your engagement soar."
+                  gradient
+                  bullets
+                  maxWidthClassName="max-w-[300px] md:max-w-[280px] lg:max-w-[360px]"
                 />
               </div>
-            );
-
-            const sectionContent = (
-              <div className={config.containerClassName}>
-                {feature.imagePosition === "left" ? (
-                  <>
-                    {featureImage}
-                    {featureContent}
-                  </>
-                ) : (
-                  <>
-                    {featureContent}
-                    {featureImage}
-                  </>
-                )}
-              </div>
-            );
-
-            return config.wrapperClassName ? (
-              <div key={feature.title} className={config.wrapperClassName}>
-                {sectionContent}
-              </div>
-            ) : (
-              <div key={feature.title}>{sectionContent}</div>
-            );
-          })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

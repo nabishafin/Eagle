@@ -34,11 +34,11 @@ const serviceSectionVariants: ServiceSectionVariant[] = [
     containerClassName:
       "mt-14 rounded-[34px] bg-gradient-to-b from-[#041a2e] to-[#050505] px-8 py-9 shadow-[0_30px_90px_rgba(0,0,0,0.34)] md:px-10 md:py-11 lg:px-8 lg:py-10",
     gridClassName:
-      "grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.72fr)_minmax(0,0.72fr)]",
+      "grid gap-6 md:grid-cols-2 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.72fr)_minmax(0,0.72fr)]",
     leftCardsClassName: "",
     leftCardClassName:
       "rounded-[28px] border border-[rgba(88,139,203,0.18)] bg-[rgba(8,22,40,0.56)] px-7 py-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
-    rightCardClassName: "rounded-[28px] px-4 py-4 md:px-6 md:py-6",
+    rightCardClassName: "rounded-[28px] px-4 py-4 md:col-span-2 md:px-6 md:py-6 lg:col-span-1",
     accentClassName: "text-[#267dff]",
     bulletIconClassName:
       "bg-[#f6fbff] text-[10px] font-bold text-[#1787ff]",
@@ -53,7 +53,7 @@ const serviceSectionVariants: ServiceSectionVariant[] = [
     containerClassName:
       "mt-8 rounded-[34px] bg-gradient-to-b from-[#2c042d] to-[#050505] sm:px-7 md:px-8 md:py-8 lg:px-8 lg:py-8",
     gridClassName:
-      "grid gap-5 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-stretch",
+      "grid gap-5 md:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] md:items-start lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-stretch",
     leftCardsClassName: "grid h-full gap-4 sm:grid-cols-2 sm:items-stretch",
     leftCardClassName:
       "flex min-h-full flex-col rounded-[22px] border border-[rgba(161,72,171,0.22)] bg-[rgba(51,11,53,0.62)] px-5 py-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]",
@@ -70,11 +70,11 @@ const serviceSectionVariants: ServiceSectionVariant[] = [
     containerClassName:
       "mt-14 rounded-[34px] bg-gradient-to-b from-[#042e09] to-[#050505] px-8 py-9 shadow-[0_30px_90px_rgba(0,0,0,0.34)] md:px-10 md:py-11 lg:px-8 lg:py-10",
     gridClassName:
-      "grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.72fr)_minmax(0,0.72fr)]",
+      "grid gap-6 md:grid-cols-2 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.72fr)_minmax(0,0.72fr)]",
     leftCardsClassName: "",
     leftCardClassName:
       "rounded-[28px] border border-[rgba(88,139,203,0.18)] bg-[#04F31F1A] px-7 py-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
-    rightCardClassName: "rounded-[28px] px-4 py-4 md:px-6 md:py-6",
+    rightCardClassName: "rounded-[28px] px-4 py-4 md:col-span-2 md:px-6 md:py-6 lg:col-span-1",
     accentClassName: "text-[#1ED760]",
     bulletIconClassName:
       "bg-[#f6fbff] text-[10px] font-bold text-[#1787ff]",
@@ -89,7 +89,7 @@ const serviceSectionVariants: ServiceSectionVariant[] = [
     containerClassName:
       "mt-8 rounded-[34px] bg-gradient-to-b from-[#2f0505] to-[#050505] sm:px-7 md:px-8 md:py-8 lg:px-8 lg:py-8",
     gridClassName:
-      "grid gap-5 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-stretch",
+      "grid gap-5 md:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] md:items-start lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-stretch",
     leftCardsClassName: "grid h-full gap-4 sm:grid-cols-2 sm:items-stretch",
     leftCardClassName:
       "flex min-h-full flex-col rounded-[22px] border border-[rgba(161,72,171,0.22)] bg-[#FF00001A] px-5 py-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]",
@@ -107,11 +107,11 @@ const serviceSectionVariants: ServiceSectionVariant[] = [
     containerClassName:
       "mt-14 rounded-[34px] bg-gradient-to-b from-[#041a2e] to-[#050505] px-8 py-9 shadow-[0_30px_90px_rgba(0,0,0,0.34)] md:px-10 md:py-11 lg:px-8 lg:py-10",
     gridClassName:
-      "grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.72fr)_minmax(0,0.72fr)]",
+      "grid gap-6 md:grid-cols-2 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.72fr)_minmax(0,0.72fr)]",
     leftCardsClassName: "",
     leftCardClassName:
       "rounded-[28px] border border-[rgba(88,139,203,0.18)] bg-[rgba(8,22,40,0.56)] px-7 py-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
-    rightCardClassName: "rounded-[28px] px-4 py-4 md:px-6 md:py-6",
+    rightCardClassName: "rounded-[28px] px-4 py-4 md:col-span-2 md:px-6 md:py-6 lg:col-span-1",
     accentClassName: "text-[#267dff]",
     bulletIconClassName:
       "bg-[#f6fbff] text-[10px] font-bold text-[#1787ff]",
@@ -126,7 +126,7 @@ const serviceSectionVariants: ServiceSectionVariant[] = [
     containerClassName:
       "mt-8 rounded-[34px] bg-gradient-to-b from-[#2c042d] to-[#050505] sm:px-7 md:px-8 md:py-8 lg:px-8 lg:py-8",
     gridClassName:
-      "grid gap-5 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-stretch",
+      "grid gap-5 md:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] md:items-start lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-stretch",
     leftCardsClassName: "grid h-full gap-4 sm:grid-cols-2 sm:items-stretch",
     leftCardClassName:
       "flex min-h-full flex-col rounded-[22px] border border-[rgba(161,72,171,0.22)] bg-[rgba(51,11,53,0.62)] px-5 py-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]",
@@ -143,11 +143,11 @@ const serviceSectionVariants: ServiceSectionVariant[] = [
     containerClassName:
       "mt-14 rounded-[34px] bg-gradient-to-b from-[#042e09] to-[#050505] px-8 py-9 shadow-[0_30px_90px_rgba(0,0,0,0.34)] md:px-10 md:py-11 lg:px-8 lg:py-10",
     gridClassName:
-      "grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.72fr)_minmax(0,0.72fr)]",
+      "grid gap-6 md:grid-cols-2 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.72fr)_minmax(0,0.72fr)]",
     leftCardsClassName: "",
     leftCardClassName:
       "rounded-[28px] border border-[rgba(88,139,203,0.18)] bg-[#04F31F1A] px-7 py-8 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
-    rightCardClassName: "rounded-[28px] px-4 py-4 md:px-6 md:py-6",
+    rightCardClassName: "rounded-[28px] px-4 py-4 md:col-span-2 md:px-6 md:py-6 lg:col-span-1",
     accentClassName: "text-[#1ED760]",
     bulletIconClassName:
       "bg-[#f6fbff] text-[10px] font-bold text-[#1787ff]",
@@ -162,7 +162,7 @@ const serviceSectionVariants: ServiceSectionVariant[] = [
     containerClassName:
       "mt-8 rounded-[34px] bg-gradient-to-b from-[#2f0505] to-[#050505] sm:px-7 md:px-8 md:py-8 lg:px-8 lg:py-8",
     gridClassName:
-      "grid gap-5 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-stretch",
+      "grid gap-5 md:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] md:items-start lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-stretch",
     leftCardsClassName: "grid h-full gap-4 sm:grid-cols-2 sm:items-stretch",
     leftCardClassName:
       "flex min-h-full flex-col rounded-[22px] border border-[rgba(161,72,171,0.22)] bg-[#FF00001A] px-5 py-6 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]",
@@ -420,7 +420,7 @@ export function EagleServiceSection() {
   const [firstCard, secondCard] = eagleServiceFeature.cards;
 
   return (
-    <section className="relative isolate overflow-hidden px-6 pb-24 pt-12 md:px-12 lg:px-[92px] lg:pt-20">
+    <section className="relative isolate overflow-hidden px-6 pb-24 pt-12 md:px-10 lg:px-[92px] lg:pt-20">
       <Image
         src={images.leftHeroShadow}
         alt=""

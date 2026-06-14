@@ -73,10 +73,10 @@ export function HowItWorksSection() {
         </div>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-14 lg:grid-cols-3">
-          {howItWorksSteps.map((step) => (
+          {howItWorksSteps.map((step, index) => (
             <article
               key={step.number}
-              className="relative overflow-hidden rounded-[18px] border border-[rgba(255,255,255,0.08)] bg-[linear-gradient(180deg,rgba(20,21,28,0.95)_0%,rgba(12,13,17,0.95)_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:px-6 sm:py-6"
+              className={`relative overflow-hidden rounded-[18px] border border-[rgba(255,255,255,0.08)] bg-[linear-gradient(180deg,rgba(20,21,28,0.95)_0%,rgba(12,13,17,0.95)_100%)] px-5 py-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] sm:px-6 sm:py-6 ${index === 2 ? "md:col-span-2 md:max-w-[420px] md:justify-self-center lg:col-span-1 lg:max-w-none" : ""}`}
             >
               <div
                 className="inline-flex h-[30px] w-[30px] items-center justify-center rounded-[9px]"

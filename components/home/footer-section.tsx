@@ -8,7 +8,7 @@ export function FooterSection() {
       <div className="pointer-events-none absolute left-[-78px] top-[38px] z-[1] h-[188px] w-[188px] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[length:12px_12px] opacity-40" />
 
       <div className="relative z-[2] mx-auto max-w-[1260px]">
-        <div className="grid gap-8 border-b border-[rgba(255,255,255,0.06)] pb-8 md:grid-cols-3 lg:grid-cols-[1fr_1fr_1fr_1.8fr_1.2fr_0.8fr] lg:gap-10">
+        <div className="grid gap-8 border-b border-[rgba(255,255,255,0.06)] pb-8 md:grid-cols-2 md:gap-x-10 md:gap-y-10 lg:grid-cols-[1fr_1fr_1fr_1.8fr_1.2fr_0.8fr] lg:gap-10">
           {footerLinkGroups.map((group, index) => (
             <div key={`${group.title}-${index}`} className="min-w-0">
               <h3 className="text-[17px] font-semibold text-white">

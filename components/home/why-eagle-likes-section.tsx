@@ -62,7 +62,7 @@ export function WhyEagleLikesSection() {
         </div>
 
         <div className="mt-14 space-y-16 md:space-y-20 lg:space-y-24">
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,400px)_minmax(320px,390px)] lg:justify-between lg:gap-x-[170px]">
+          <div className="grid items-center gap-10 md:grid-cols-[minmax(0,1fr)_320px] md:gap-x-10 lg:grid-cols-[minmax(0,400px)_minmax(320px,390px)] lg:justify-between lg:gap-x-[170px]">
             <div className="max-w-[410px]">
               <h3 className="text-[clamp(2rem,2.8vw,3rem)] font-bold leading-[1] tracking-[-0.04em] text-white">
                 Growth Focused
@@ -85,7 +85,7 @@ export function WhyEagleLikesSection() {
             </div>
           </div>
 
-          <div className="grid items-center gap-10 lg:grid-cols-[minmax(320px,390px)_minmax(0,430px)] lg:justify-between lg:gap-x-[170px]">
+          <div className="grid items-center gap-10 md:grid-cols-[320px_minmax(0,1fr)] md:gap-x-10 lg:grid-cols-[minmax(320px,390px)_minmax(0,430px)] lg:justify-between lg:gap-x-[170px]">
             <div className="flex justify-center lg:justify-start">
               <FeatureImage
                 src={secondFeature.image}
@@ -108,7 +108,7 @@ export function WhyEagleLikesSection() {
             </div>
           </div>
 
-          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,430px)_minmax(420px,520px)] lg:justify-between lg:gap-x-[120px]">
+          <div className="grid items-center gap-12 md:grid-cols-[minmax(0,1fr)_360px] md:gap-x-10 lg:grid-cols-[minmax(0,430px)_minmax(420px,520px)] lg:justify-between lg:gap-x-[120px]">
             <div className="max-w-[420px]">
               {thirdFeature.badge ? (
                 <div className="inline-flex items-center gap-2 rounded-full bg-[rgba(142,70,211,0.16)] px-[10px] py-[4px] text-[10px] font-medium text-[#d98bff]">
