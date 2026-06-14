@@ -25,6 +25,12 @@ export function HeroSection() {
       <div className="pointer-events-none absolute right-[-120px] top-[50px] z-0 h-[240px] w-[240px] rounded-full bg-[rgba(0,106,255,0.2)] blur-[70px] sm:h-[280px] sm:w-[280px] lg:h-[320px] lg:w-[320px] lg:blur-[80px]" />
 
       <Image
+        src={images.hero_top_shadow}
+        alt=""
+        className="pointer-events-none absolute left-1/2 top-0 z-0 h-auto w-[min(100%,980px)] -translate-x-1/2 select-none opacity-80"
+        priority
+      />
+      <Image
         src={images.leftHeroShadow}
         alt=""
         className="pointer-events-none absolute left-0 top-[88px] z-0 h-auto w-[220px] select-none opacity-60 sm:w-[270px] md:w-[300px] lg:w-[340px] lg:opacity-70"

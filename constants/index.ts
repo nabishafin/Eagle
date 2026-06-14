@@ -11,6 +11,7 @@ import facebook from "@/public/facebook.png";
 import fox from "@/public/fox.png";
 import greenEagle from "@/public/green_eagle.svg";
 import greenWrite from "@/public/green_write.png";
+import globe from "@/public/globe.svg";
 import insta from "@/public/insta.png";
 import leftHeroImg from "@/public/left_hero_img.png";
 import leftHeroShadow from "@/public/left_hero_shadow.png";
@@ -57,6 +58,7 @@ export const images = {
     digitalJurnal,
     facebook,
     fox,
+    globe,
     greenEagle,
     greenWrite,
     insta,
@@ -395,6 +397,73 @@ export const whyEagleLikesFeatures: WhyEagleLikesFeature[] = [
                 description: "Track every metric and optimize for maximum impact.",
                 color: "purple",
             },
+        ],
+    },
+];
+
+export type FooterLinkGroup = {
+    title: string;
+    links: string[];
+};
+
+export const footerLinkGroups: FooterLinkGroup[] = [
+    {
+        title: "Blog",
+        links: [
+            "Instagram Services",
+            "Buy Instagram Likes",
+            "Buy Instagram Comments",
+            "Buy Instagram Followers",
+            "Buy Instagram Views",
+        ],
+    },
+    {
+        title: "Contact Us",
+        links: [
+            "TikTok Services",
+            "Buy TikTok Likes",
+            "Buy TikTok Followers",
+            "Buy TikTok Views",
+        ],
+    },
+    {
+        title: "Terms of Service",
+        links: [
+            "YouTube Services",
+            "Buy YouTube Views",
+            "Buy YouTube Subscribers",
+            "Buy YouTube Likes",
+        ],
+    },
+    {
+        title: "Privacy Policy",
+        links: [
+            "Tools & Resources",
+            "Instagram Video Downloader",
+            "Instagram Profile Picture Viewer",
+            "Instagram Story Downloader",
+            "Instagram Story Viewer",
+            "Instagram Follower Counter",
+            "Free Instagram Likes Trial",
+            "Free Instagram Followers Trial",
+        ],
+    },
+    {
+        title: "My Account",
+        links: [
+            "Instagram Story Viewer",
+            "Twitter Video Downloader",
+            "Twitter GIF Downloader",
+            "Free TikTok Views",
+            "Facebook Video Downloader",
+            "Facebook Reels Downloader",
+        ],
+    },
+    {
+        title: " ",
+        links: [
+            "Log In",
+            "Sign In",
         ],
     },
 ];

@@ -1,6 +1,7 @@
 import {
   EagleLikeSection,
   EagleServiceSection,
+  FooterSection,
   HeroSection,
   HowItWorksSection,
   WhyEagleLikesSection,
@@ -14,6 +15,7 @@ const HomePage = () => {
       <EagleServiceSection />
       <HowItWorksSection />
       <WhyEagleLikesSection />
+      <FooterSection />
     </main>
   );
 };
