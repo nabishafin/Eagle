@@ -47,20 +47,20 @@ type FeatureSectionConfig = {
 const featureSectionConfigs: FeatureSectionConfig[] = [
   {
     containerClassName:
-      `grid items-center gap-10 md:grid-cols-[minmax(0,420px)_minmax(320px,420px)] md:gap-14 ${desktopFeatureGapClassName}`,
+      `grid items-center gap-10 lg:grid-cols-[minmax(0,420px)_minmax(320px,420px)] lg:gap-14 ${desktopFeatureGapClassName}`,
     contentClassName: "flex flex-col gap-[35px]",
-    imageWrapperClassName: "order-1 flex justify-center md:order-2 md:justify-end",
-    imageFrameClassName: "w-[250px] md:w-[320px] lg:w-[380px]",
+    imageWrapperClassName: "order-1 flex justify-center lg:order-2 lg:justify-end",
+    imageFrameClassName: "w-[250px] sm:w-[280px] md:w-[320px] lg:w-[380px]",
     imageWidth: 380,
     imageHeight: 540,
     preload: true,
   },
   {
     containerClassName:
-      `grid items-center gap-10 md:grid-cols-[minmax(320px,420px)_minmax(0,420px)] md:gap-14 ${desktopFeatureGapClassName}`,
+      `grid items-center gap-10 lg:grid-cols-[minmax(320px,420px)_minmax(0,420px)] lg:gap-14 ${desktopFeatureGapClassName}`,
     contentClassName: "flex max-w-[420px] flex-col gap-[35px]",
-    imageWrapperClassName: "flex justify-center md:justify-start",
-    imageFrameClassName: "w-[250px] md:w-[320px] lg:w-[380px]",
+    imageWrapperClassName: "flex justify-center lg:justify-start",
+    imageFrameClassName: "w-[250px] sm:w-[280px] md:w-[320px] lg:w-[380px]",
     imageWidth: 380,
     imageHeight: 540,
     preload: false,
@@ -68,12 +68,12 @@ const featureSectionConfigs: FeatureSectionConfig[] = [
   {
     wrapperClassName: "border-t border-white/6 pt-16 md:pt-20",
     containerClassName:
-      `grid items-center gap-12 md:grid-cols-[693px_minmax(0,520px)] md:gap-16 ${desktopFeatureGapClassName}`,
+      `grid items-center gap-12 lg:grid-cols-[693px_minmax(0,520px)] lg:gap-16 ${desktopFeatureGapClassName}`,
     contentClassName: "flex max-w-[520px] flex-col gap-[35px]",
-    imageWrapperClassName: "flex justify-center md:justify-start",
-    imageFrameClassName: "w-[693px] shrink-0",
-    imageWidth: thirdFeatureImage?.width ?? 693,
-    imageHeight: thirdFeatureImage?.height ?? 759,
+    imageWrapperClassName: "flex justify-center lg:justify-start",
+    imageFrameClassName: "w-full  lg:shrink-0",
+    imageWidth: thirdFeatureImage?.width,
+    imageHeight: thirdFeatureImage?.height,
     preload: false,
     gradientTitle: true,
     showBullets: true,
@@ -160,37 +160,37 @@ export function EagleLikeSection() {
         src={images.leftHeroShadow}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-[118px] z-[1] h-auto w-[340px] select-none opacity-70"
+        className="pointer-events-none absolute left-0 top-[118px] z-[1] h-auto w-[200px] select-none opacity-60 sm:w-[250px] md:w-[290px] lg:w-[340px] lg:opacity-70"
         priority
       />
       <Image
         src={images.rightHeroShadow}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-[92px] z-[1] h-auto w-[265px] select-none opacity-[0.74]"
+        className="pointer-events-none absolute right-0 top-[92px] z-[1] h-auto w-[150px] select-none opacity-[0.58] sm:w-[190px] md:w-[220px] lg:w-[265px] lg:opacity-[0.74]"
         priority
       />
       <Image
         src={images.leftHeroShadow}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[210px] left-0 z-[1] h-auto w-[340px] select-none opacity-70"
+        className="pointer-events-none absolute bottom-[290px] left-0 z-[1] h-auto w-[210px] select-none opacity-60 sm:w-[250px] md:w-[290px] lg:bottom-[210px] lg:w-[340px] lg:opacity-70"
         priority
       />
       <Image
         src={images.rightHeroShadow}
         alt=""
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-[160px] right-0 z-[1] h-auto w-[265px] select-none opacity-[0.74]"
+        className="pointer-events-none absolute bottom-[260px] right-0 z-[1] h-auto w-[150px] select-none opacity-[0.58] sm:w-[190px] md:w-[220px] lg:bottom-[160px] lg:w-[265px] lg:opacity-[0.74]"
         priority
       />
 
-      <div className="relative z-[2] mx-auto w-full ">
+      <div className="relative z-[2] mx-auto w-full">
         <div className="pb-8">
           <p className="mb-4 text-center text-[9px] tracking-[0.18em] text-[#99A1AF] uppercase">
             Eagle Likes is seen on...
           </p>
-          <div className="overflow-hidden mt-10">
+          <div className="mt-8 overflow-hidden sm:mt-10">
             <div className="flex w-max items-center gap-x-5 marquee-track md:gap-x-7">
               {[...reversedPressLogos, ...reversedPressLogos].map(
                 (logo, index) => (
@@ -206,7 +206,7 @@ export function EagleLikeSection() {
           </div>
         </div>
 
-        <div className="mt-16 space-y-20 md:mt-20 md:space-y-28 px-[181px]">
+        <div className="mt-16 space-y-20 px-5 sm:px-8 md:mt-20 md:space-y-24 md:px-12 lg:space-y-28 lg:px-[181px]">
           {eagleLikeFeatures.map((feature, index) => {
             const config = featureSectionConfigs[index];
 
@@ -216,9 +216,8 @@ export function EagleLikeSection() {
 
             const featureContent = (
               <div
-                className={`${config.contentClassName} ${
-                  index === 2 ? "relative -top-[90px]" : ""
-                }`}
+                className={`${config.contentClassName} ${index === 2 ? "lg:relative lg:-top-[90px]" : ""
+                  }`}
               >
                 <h2 className="text-[clamp(2rem,3vw,3rem)] leading-[0.96] font-bold tracking-[-0.04em] text-white">
                   {renderFeatureTitle(feature.title, config.gradientTitle)}

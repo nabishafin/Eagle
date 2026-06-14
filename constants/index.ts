@@ -255,3 +255,51 @@ export const eagleLikeFeatures: EagleLikeFeature[] = [
         ],
     },
 ];
+
+export type EagleServiceFeature = {
+    title: string;
+    accent: string;
+    description: string;
+    rating: string;
+    reviews: string;
+    bullets: string[];
+    buttonLabel: string;
+    cards: {
+        title: string;
+        url: string;
+        description: string;
+    }[];
+};
+
+export const eagleServiceFeature: EagleServiceFeature = {
+    title: "Buy Instagram Likes",
+    accent: "Instagram",
+    description:
+        "Transform your social media journey with reliable Instagram and TikTok growth solutions. Gain real followers, likes, and views safely and instantly, helping your content reach more people and increasing your engagement organically",
+    rating: "5.0",
+    reviews: "3220+",
+    bullets: [
+        "Real likes from authentic Instagram users",
+        "Different follower packages available to choose",
+        "Likes delivered instantly",
+        "Option to split your likes across several posts",
+        "Cost-effective",
+        "Total safety for your data and accounts",
+        "Explosive likes growth",
+    ],
+    buttonLabel: "Buy Instagram Likes",
+    cards: [
+        {
+            title: "Why Do Instagram Followers Matter?",
+            url: "https://docs.google.com/document/d/100cYimpHIFPWTXJFPNO0kC8AHA7tEQ_uebv8MIRP-0/edit?usp=sharing",
+            description:
+                "Learn how follower count builds trust, reach, and stronger first impressions for your profile.",
+        },
+        {
+            title: "Main Reasons To Buy Instagram Followers",
+            url: "https://docs.google.com/document/d/100cYimpHIFPWTXJFPNO0kC8AHA7tEQ_uebv8MIRP-0/edit?usp=sharing",
+            description:
+                "See why brands and creators use follower boosts to kickstart visibility and social proof.",
+        },
+    ],
+};
