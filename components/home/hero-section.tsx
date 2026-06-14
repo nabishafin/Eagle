@@ -121,7 +121,7 @@ export function HeroSection() {
           </div>
         </header>
 
-        <div className="pt-12 sm:pt-16 md:pt-20 lg:pt-[183px]">
+        <div className="pt-12 sm:pt-16 md:pt-20 lg:pt-[83px]">
           <div className="w-full text-center flex flex-col justify-center items-center">
             <h1 className="m-0 text-[clamp(1.95rem,3.6vw,3.75rem)] leading-[1.06] font-extrabold tracking-[-0.04em] text-white text-balance">
               Buy TikTok and Instagram Followers Views & Likes and{" "}

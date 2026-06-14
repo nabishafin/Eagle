@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  /* পুরো অ্যাপের ডিফল্ট ফন্ট এবং তার লেটার স্পেসিং (tracking) একসাথে সেট করা */
+  --font-sans: var(--font-rethink-sans), sans-serif;
+
+  /* পুরো অ্যাপের ডিফল্ট লেটার স্পেসিং কিছুটা বাড়িয়ে দেওয়া হলো */
+  --tracking-normal: 0.02em;
+}
+
+/* যদি ওপরের নিয়মেও কোনো ক্লাস এটিকে আটকে দেয়, তবে এই নিচের রুলটি ফোর্স করবে */
+body {
+  letter-spacing: 0.02em !important;
+}
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
