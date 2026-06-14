@@ -95,12 +95,12 @@ export function HeroSection() {
         </header>
 
         <div className="pt-12 sm:pt-16 md:pt-20 lg:pt-[183px]">
-          <div className="w-full text-center">
+          <div className="w-full text-center flex flex-col justify-center items-center">
             <h1 className="m-0 text-[clamp(1.95rem,3.6vw,3.75rem)] leading-[1.06] font-extrabold tracking-[-0.04em] text-white text-balance">
               Buy TikTok and Instagram Followers Views & Likes and{" "}
               <span className="text-[#04a9ff]">other Interactions!</span>
             </h1>
-            <p className="mx-auto mt-4 max-w-[760px] text-[15px] leading-[1.55] text-[#8ea7c6] sm:text-[16px] md:mt-5 md:text-[17px] lg:mt-[18px] lg:text-[19px]">
+            <p className="mx-auto mt-4 max-w-[760px] text-center text-[15px] leading-[1.55] text-[#8ea7c6] sm:text-[16px] md:mt-5 md:text-[17px] lg:mt-[18px] lg:text-[19px]">
               Enhance your brand&apos;s online presence and increase engagement
               with our social media growth solutions.
             </p>
