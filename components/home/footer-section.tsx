@@ -10,7 +10,7 @@ export function FooterSection() {
       <div className="relative z-[2] mx-auto max-w-[1260px]">
         <div className="grid gap-8 border-b border-[rgba(255,255,255,0.06)] pb-8 md:grid-cols-2 md:gap-x-10 md:gap-y-10 lg:grid-cols-[1fr_1fr_1fr_1.8fr_1.2fr_0.8fr] lg:gap-10">
           {footerLinkGroups.map((group, index) => (
-            <div key={`${group.title}-${index}`} className="min-w-0">
+            <div key={`${group.title}-${index}`} className="min-w-0 text-center md:text-left">
               <h3 className="text-[17px] font-semibold text-white">
                 {group.title === " " ? "\u00A0" : group.title}
               </h3>
@@ -28,8 +28,8 @@ export function FooterSection() {
           ))}
         </div>
 
-        <div className="mt-5 flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-2 text-[13px] text-[#a7adb6]">
+        <div className="mt-5 flex flex-col items-center gap-5 md:flex-row md:justify-between text-center md:text-left">
+          <div className="flex items-center justify-center gap-2 text-[13px] text-[#a7adb6]">
             <Image
               src={images.globe}
               alt=""
@@ -44,7 +44,7 @@ export function FooterSection() {
             Copyright © 2025 Eagle Likes, All Rights Reserved.
           </p>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             {paymentLogos.map((logo, index) => (
               <div
                 key={`${logo.src || index}`}

@@ -464,7 +464,7 @@ export function EagleServiceSection() {
         priority
       />
 
-      <div className="relative z-[2] mx-auto max-w-[1260px]">
+      <div className="relative z-[2] mx-auto max-w-[1020px]">
         <div className="mx-auto max-w-[760px] text-center">
           <h2 className="text-[clamp(2.1rem,3.4vw,3.6rem)] font-bold tracking-[-0.04em] text-white">
             Eagle Likes <span className="text-[#11a8ff]">Services</span>

@@ -12,13 +12,16 @@ function FeatureImage({
   src,
   alt,
   widthClassName,
+  glowClassName,
 }: {
   src: Parameters<typeof Image>[0]["src"];
   alt: string;
   widthClassName: string;
+  glowClassName?: string;
 }) {
   return (
     <div className={`relative ${widthClassName}`}>
+      {glowClassName && <div className={glowClassName} />}
       <div className="absolute inset-0 rounded-[2.5rem] shadow-[0_24px_48px_rgba(0,0,0,0.32)]" />
       <Image
         src={src}
@@ -49,7 +52,7 @@ export function WhyEagleLikesSection() {
         priority
       />
 
-      <div className="relative z-[2] mx-auto max-w-[1260px]">
+      <div className="relative z-[2] mx-auto max-w-[1020px]">
         <div className="mx-auto max-w-[520px] text-center">
           <h2 className="text-[clamp(2rem,3vw,3.3rem)] font-bold tracking-[-0.04em] text-white">
             Why <span className="text-[#09a7ff]">Eagle Likes?</span>
@@ -156,6 +159,7 @@ export function WhyEagleLikesSection() {
                 src={thirdFeature.image}
                 alt={thirdFeature.imageAlt}
                 widthClassName="w-[290px] sm:w-[360px] md:w-[430px] lg:w-[500px]"
+                glowClassName="absolute inset-[25%] rounded-full bg-[#f121d5] blur-[50px] opacity-[0.65] lg:blur-[70px]"
               />
             </div>
           </div>

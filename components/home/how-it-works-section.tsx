@@ -61,7 +61,7 @@ export function HowItWorksSection() {
       <div className="pointer-events-none absolute left-[-140px] top-[92px] h-[260px] w-[260px] rounded-full bg-[rgba(8,94,204,0.2)] blur-[90px] sm:h-[320px] sm:w-[320px]" />
       <div className="pointer-events-none absolute right-[-140px] top-0 h-[360px] w-[360px] rounded-full bg-[rgba(8,94,204,0.18)] blur-[110px]" />
 
-      <div className="relative z-[1] mx-auto max-w-[1260px]">
+      <div className="relative z-[1] mx-auto max-w-[1020px]">
         <div className="mx-auto max-w-[560px] text-center">
           <h2 className="text-[clamp(2rem,3vw,3.2rem)] font-bold tracking-[-0.04em] text-white">
             How it works
